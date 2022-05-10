@@ -5,6 +5,7 @@
       let playerHand =[]
       let dealerScore=''
       let playerScore=''
+      let betAmount =''
       
 
       let money = 100
@@ -570,8 +571,9 @@
          
       function hitMe () {
       
-         playerHand.push(getCard('player'))
-         displayScore()
+        playerHand.push(getCard('player'))
+        displayScore()
+        checkStatus()
 
       }    
      
@@ -581,7 +583,9 @@
          dealerHand.push(getCard('dealer'));
          dealerScore =getScore(dealerHand)
        }
+       
        displayScore()
+       checkStatus()
       }
 
       let stayBut = document.getElementById('stay')
@@ -611,13 +615,13 @@
 
      function displayScore () {
           
-           let dealerScore= getScore(dealerHand)
+           dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
-           dealerDiv.innerHTML = 'Total Score:'+dealerScore
+           dealerDiv.innerHTML = 'Dealer Score:'+dealerScore
 
-           let playerScore= getScore(playerHand)
+           playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
-           playerDiv.innerHTML = 'Total Score:'+playerScore
+           playerDiv.innerHTML = 'Player Score:'+playerScore
     
       }
           
@@ -625,8 +629,7 @@
      
 
      function deal () {
-         
-       initializeDeck()
+       resetGame()
        dealerHand =[getCard("dealer"),getCard("dealer")]
        playerHand =[getCard("player"),getCard("player")]
        document.getElementById("play-game").disabled = true
@@ -634,8 +637,9 @@
        document.getElementById("stay").disabled = false
        shuffleDeck(DECK)
        displayScore()
+       checkStatus()
        console.log(DECK)
-
+       
  
        }
 
@@ -660,33 +664,96 @@
       } 
        
      function resetGame () {
-               initializeDeck()
-               dealerHand =[]
-               playerHand =[]
-               dealerScore=[]
-               playerScore=[]
-               money = 100
-               const div = document.querySelector('#player')
-               const divs = div.querySelectorAll('img')
-               divs.forEach(child => child.remove() )
-               const div2 = document.querySelector('#dealer')
-               const divs2 = div2.querySelectorAll('img')
-               divs2.forEach(child => child.remove() )
-               const dealer = document.querySelector('#dealerscore')
-               dealer.innerHTML=''
-               const player = document.querySelector('#playerscore')
-               player.innerHTML=''
-               document.getElementById("play-game").disabled = false 
-               document.getElementById("hit").disabled = true 
-               document.getElementById("stay").disabled = true
+            initializeDeck()
+            dealerHand =[]
+            playerHand =[]
+            dealerScore=[]
+            playerScore=[]
+            
+            const div = document.querySelector('#player')
+            const divs = div.querySelectorAll('img')
+            divs.forEach(child => child.remove() )
+            const div2 = document.querySelector('#dealer')
+            const divs2 = div2.querySelectorAll('img')
+            divs2.forEach(child => child.remove() )
+            const dealer = document.querySelector('#dealerscore')
+            dealer.textContent=''
+            const player = document.querySelector('#playerscore')
+            player.textContent=''
+            const message = document.getElementById('textupdates')
+            message.textContent=''
+            document.getElementById("play-game").disabled = false 
+            document.getElementById("hit").disabled = true 
+            document.getElementById("stay").disabled = true
           }
     
          
-          const play= document.getElementById('play-game')
-          play.addEventListener('click',deal)
+        const play= document.getElementById('play-game')
+        play.addEventListener('click',deal)
     
     
-          const rest= document.getElementById('reset')
-          rest.addEventListener('click',resetGame)
-          
-          
+        const rest= document.getElementById('reset')
+        rest.addEventListener('click',resetGame)
+      
+      function wager(result) {
+       let bet = document.getElementById("bet").valueAsNumber;  
+          if (result === "won") {
+               money +=  bet
+          }else if (result === "lost") {
+               money -=  bet
+          }
+      } 
+        
+      function checkStatus () {
+        let message = document.getElementById('textupdates')
+        let deal = " Press Deal to continue playing"
+        let reset = false; 
+         if (dealerScore === 21) {
+           message.textContent='Dealer wins with BLACK JACK!' + deal
+           wager('lost')
+          reset = true 
+          } else if(dealerScore > 21){
+           message.textContent='Dealer went over 21. You won!' + deal
+           wager('won')
+           reset=true 
+         } 
+         
+         
+        if (playerScore === 21) {
+             message.textContent='You got BLACK JACK!' + deal
+             wager('won')
+             reset=true
+        } else if (playerScore > 21) {
+             message.textContent='Sorry, You lost! You went over 21!' + deal
+             wager('lost')
+             reset=true 
+        }    
+
+       
+
+      if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21) {
+           message.textContent='You Tied!' + deal
+           reset = true
+     }else if (dealerScore >= 17 && playerScore > dealerScore && playerScore < 21) {
+           message.textContent='You beat the dealer! You won!' + deal
+           wager('won')
+           reset = true
+     }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21){
+           message.textContent='Sorry! The dealer had a higher score. You lost' + deal
+           wager('lost')
+           reset = true
+     }
+
+        if (reset){
+          document.getElementById("play-game").disabled = false
+          document.getElementById("hit").disabled = true
+          document.getElementById("stay").disabled = true
+        }
+      
+        if (money <= 0) {
+
+        } 
+ 
+        let moneyLeft = document.getElementById('money')
+        moneyLeft.textContent = "Money Left: $" +money
+}
