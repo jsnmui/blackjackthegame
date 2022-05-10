@@ -1,7 +1,12 @@
-      let DECK = []
+      let DECK =  []
+      
       let numberValue = ''
       let dealerHand =[]
       let playerHand =[]
+      let dealerScore=''
+      let playerScore=''
+      
+
       let money = 100
       function initializeDeck(){
          
@@ -528,7 +533,7 @@
           }
           ]
              
-                  for(let v = 0; v < DECK.length; v++)
+               for(let v = 0; v < DECK.length; v++)
                   {
                        
                       if (DECK[v].value == "JACK" || DECK[v].value == "KING" || DECK[v].value == "QUEEN" ){
@@ -540,7 +545,7 @@
                      }    
                       DECK[v].NumberValue = numberValue
                       
-                  }
+               }
               
                 
        }
@@ -548,7 +553,7 @@
         
         
         
-       function shuffleDeck () {
+      function shuffleDeck () {
              
                  //for 1000 iterations, swap two random cards in the deck
                 for (let idx = 0; idx < DECK.length ; idx++)
@@ -563,55 +568,122 @@
                
            }
          
-       function hitMe () {
-         const div =document.getElementById('player')
-         const pic = document.createElement('img')
-         const card = DECK.pop()
-         pic.src= card.image
+      function hitMe () {
+      
+         playerHand.push(getCard('player'))
+         displayScore()
+
+      }    
+     
+      function stay() {
+       dealerScore =getScore(dealerHand)
+       while(dealerScore < 17) {  
+         dealerHand.push(getCard('dealer'));
+         dealerScore =getScore(dealerHand)
+       }
+       displayScore()
+      }
+
+      let stayBut = document.getElementById('stay')
+      stayBut.addEventListener('click',stay)
+      
+      let hit= document.getElementById('hit')        
+      hit.addEventListener('click', hitMe)
+ 
+      
+    function getScore(cardArray) {
           
-
-         div.appendChild(pic)
-
-       }    
-        
-       hit.addEventListener('click', function() {
-                 hitMe()
-       })
-
-         
-       const displayScore = (game) => {
-                  
-                 const parentDiv = document.querySelector('body')
-                 const newDiv= document.createElement("div");
-                 newDiv.className = 'game'
-                 newDiv.innerHTML= `&nbspComputer Score: ${game[0]} Player Score: ${game[1]}  Winner: ${game[2]}`
-                 parentDiv.appendChild(newDiv)
-    
+          let total = 0;
+          let NumberofAces =0;
+       for  (let i =0 ; i<cardArray.length; i++){
+              if (cardArray[i].value === "ACE") {
+                 NumberofAces += 1;
+              }   
+                total += cardArray[i].NumberValue;
+          }      
+          //count aces as value 1 if it busts
+          while (NumberofAces > 0 && total > 21) {
+              total -= 10;
+              NumberofAces -= 1;
           }
+          return total;
+      }
+
+     function displayScore () {
+          
+           let dealerScore= getScore(dealerHand)
+           let dealerDiv = document.getElementById('dealerscore')
+           dealerDiv.innerHTML = 'Total Score:'+dealerScore
+
+           let playerScore= getScore(playerHand)
+           let playerDiv = document.getElementById('playerscore')
+           playerDiv.innerHTML = 'Total Score:'+playerScore
+    
+      }
           
     
-          
-    
-       const playGame = () =>{
+     
+
+     function deal () {
          
-         
-        initializeDeck()
-        shuffleDeck(DECK)
-         console.log(DECK)
+       initializeDeck()
+       dealerHand =[getCard("dealer"),getCard("dealer")]
+       playerHand =[getCard("player"),getCard("player")]
+       document.getElementById("play-game").disabled = true
+       document.getElementById("hit").disabled = false 
+       document.getElementById("stay").disabled = false
+       shuffleDeck(DECK)
+       displayScore()
+       console.log(DECK)
 
  
        }
-       
-          const resetGame= () => { 
-          const div = document.querySelector('#player')
-          const divs = div.querySelectorAll('img')
-          divs.forEach(child => child.remove() )
+
+
+     function getCard(person) {
           
+         let card= DECK.pop();
+         
+         if (person === 'player'){            
+          let div = document.getElementById('player')
+          let pic = document.createElement('img')
+          pic.src= card.image
+          div.appendChild(pic)
+        } else if(person === 'dealer'){
+          let div = document.getElementById('dealer')
+          let pic = document.createElement('img')
+          pic.src= card.image
+          div.appendChild(pic)
+        }
+     
+          return card
+      } 
+       
+     function resetGame () {
+               initializeDeck()
+               dealerHand =[]
+               playerHand =[]
+               dealerScore=[]
+               playerScore=[]
+               money = 100
+               const div = document.querySelector('#player')
+               const divs = div.querySelectorAll('img')
+               divs.forEach(child => child.remove() )
+               const div2 = document.querySelector('#dealer')
+               const divs2 = div2.querySelectorAll('img')
+               divs2.forEach(child => child.remove() )
+               const dealer = document.querySelector('#dealerscore')
+               dealer.innerHTML=''
+               const player = document.querySelector('#playerscore')
+               player.innerHTML=''
+               document.getElementById("play-game").disabled = false 
+               document.getElementById("hit").disabled = true 
+               document.getElementById("stay").disabled = true
           }
     
          
           const play= document.getElementById('play-game')
-          play.addEventListener('click',playGame)
+          play.addEventListener('click',deal)
     
     
           const rest= document.getElementById('reset')

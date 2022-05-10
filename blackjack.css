@@ -1,10 +1,26 @@
-.winner {
+.container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+
+div.textupdates
+{
+    width: 600px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 8px 8px 8px 8px;
+    font-weight: bold;
+    
+    margin-top: 20px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+     
 }
 body {
     display: flex;
@@ -18,3 +34,38 @@ body {
 #dealer{
     display:flex wrap;
 }
+
+#playerscore{
+    font-size: 40px;
+}
+
+#dealerscore{
+    font-size: 40px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+
+.buttons {
+    
+    color: red;
+    text-align: center;
+    width: 500px;
+    padding: 10px;
+}
+.buttons h3 {
+     
+    padding: 5px;
+}
+
+.inner {
+    
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ 
