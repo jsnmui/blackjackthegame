@@ -593,10 +593,10 @@
          let dealr = document.querySelector('#dealer :nth-child(2)')
          dealr.src=tempPic
        }   
-       dealerScore =getScore(dealerHand)
+       dealerScore =getScore(dealerHand,'d')
        while(dealerScore < 17) {  
          dealerHand.push(getCard('dealer'));
-         dealerScore =getScore(dealerHand)
+         dealerScore =getScore(dealerHand,'d')
        }
        
        displayScore()
