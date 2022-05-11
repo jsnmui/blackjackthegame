@@ -15,7 +15,7 @@
       let dealerScore=''
       let playerScore=''
       let betAmount =''
-      //temporary variable to hold the image link
+      //temporary variable to hold the image link of hidden card
       let tempPic =''      
       //Initial amount of money for betting
       let money = 100
@@ -589,8 +589,8 @@
      
       function stay() {
 
-       if(playerHand.length  > 2 || dealerHand.length ){
-         let dealr = document.querySelector('#dealer :nth-child(2)')
+       if(playerHand.length  > 2  ){
+         let dealr = document.querySelector('#dealer :nth-child(1)')
          dealr.src=tempPic
        }   
        dealerScore =getScore(dealerHand,'d')
@@ -635,7 +635,7 @@
            dealerScore= getScore(dealerHand,'d')
            let dealerDiv = document.getElementById('dealerscore')
            if (dealerHand.length == 2 ){
-            dealerDiv.textContent = 'Dealer Score:' + dealerHand[0].NumberValue + ' + ?'
+            dealerDiv.textContent = 'Dealer Score:' + '? +' + dealerHand[1].NumberValue 
            } else {
            dealerDiv.textContent = 'Dealer Score:'+dealerScore
            }
@@ -653,9 +653,12 @@
        shuffleDeck(DECK)
        dealerHand =[getCard("dealer"),getCard("dealer")]
        playerHand =[getCard("player"),getCard("player")]
-       tempPic = dealerHand[1].image
-       const dealr = document.querySelector('#dealer :nth-child(2)')
+       // save the image of the hidden card
+       tempPic = dealerHand[0].image
+       const dealr = document.querySelector('#dealer :nth-child(1)')
+       //replace the image with the back of a card
        dealr.src='cardback.jpg'      
+
        document.getElementById("play-game").disabled = true
        document.getElementById("hit").disabled = false 
        document.getElementById("stay").disabled = false
@@ -727,7 +730,8 @@
 
        // calculates the amount of money lost or won in a bet
       function wager(result) {
-       let bet = document.getElementById("bet").valueAsNumber;  
+       let bet = document.getElementById("bet").value; 
+         bet = Number(bet)
           if (result === "won") {
                money +=  bet
           }else if (result === "lost") {
@@ -776,10 +780,10 @@
      }
 
         if (reset){
-          //reveal the hidden dealer's card and score
+          //reveal the dealer's hidden card and score
           let dealerDiv = document.getElementById('dealerscore')
           dealerDiv.textContent = 'Dealer Score:'+dealerScore
-          let dealr = document.querySelector('#dealer :nth-child(2)')
+          let dealr = document.querySelector('#dealer :nth-child(1)')
           dealr.src=tempPic 
           document.getElementById("play-game").disabled = false
           document.getElementById("hit").disabled = true
