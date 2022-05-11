@@ -1,3 +1,12 @@
+ 
+      window.onload = (event) => {
+        // disable HIT and STAY buttons before cards are dealt 
+        document.getElementById("play-game").disabled = false
+        document.getElementById("hit").disabled = true
+        document.getElementById("stay").disabled = true
+         
+      };
+      //Card variables available to functionss 
       let DECK =  []
       
       let numberValue = ''
@@ -6,8 +15,9 @@
       let dealerScore=''
       let playerScore=''
       let betAmount =''
-      
-
+      //temporary variable to hold the image link
+      let tempPic =''      
+      //Initial amount of money for betting
       let money = 100
       function initializeDeck(){
          
@@ -533,7 +543,7 @@
           "suit": "DIAMONDS"
           }
           ]
-             
+             // Store the numeric values of the cards for later calculations
                for(let v = 0; v < DECK.length; v++)
                   {
                        
@@ -578,6 +588,11 @@
       }    
      
       function stay() {
+
+       if(playerHand.length  > 2 || dealerHand.length ){
+         let dealr = document.querySelector('#dealer :nth-child(2)')
+         dealr.src=tempPic
+       }   
        dealerScore =getScore(dealerHand)
        while(dealerScore < 17) {  
          dealerHand.push(getCard('dealer'));
@@ -617,11 +632,14 @@
           
            dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
-           dealerDiv.innerHTML = 'Dealer Score:'+dealerScore
-
+           if (dealerHand.length == 2 ){
+            dealerDiv.textContent = 'Dealer Score:' + dealerHand[0].NumberValue + ' + ?'
+           } else {
+           dealerDiv.textContent = 'Dealer Score:'+dealerScore
+           }
            playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
-           playerDiv.innerHTML = 'Player Score:'+playerScore
+           playerDiv.textContent = 'Player Score:'+playerScore
     
       }
           
@@ -630,12 +648,16 @@
 
      function deal () {
        resetGame()
+       shuffleDeck(DECK)
        dealerHand =[getCard("dealer"),getCard("dealer")]
        playerHand =[getCard("player"),getCard("player")]
+       tempPic = dealerHand[1].image
+       const dealr = document.querySelector('#dealer :nth-child(2)')
+       dealr.src='cardback.jpg'      
        document.getElementById("play-game").disabled = true
        document.getElementById("hit").disabled = false 
        document.getElementById("stay").disabled = false
-       shuffleDeck(DECK)
+        
        displayScore()
        checkStatus()
        console.log(DECK)
@@ -667,9 +689,10 @@
             initializeDeck()
             dealerHand =[]
             playerHand =[]
-            dealerScore=[]
-            playerScore=[]
-            
+            dealerScore=0
+            playerScore=0
+             
+            document.getElementById('money').textContent=''
             const div = document.querySelector('#player')
             const divs = div.querySelectorAll('img')
             divs.forEach(child => child.remove() )
@@ -688,13 +711,20 @@
           }
     
          
-        const play= document.getElementById('play-game')
-        play.addEventListener('click',deal)
+       const play= document.getElementById('play-game')
+       play.addEventListener('click',deal)
     
     
-        const rest= document.getElementById('reset')
-        rest.addEventListener('click',resetGame)
+      //  const rest= document.getElementById('reset')
+      //  rest.addEventListener('click',resetGame)
       
+       const reStart =document.getElementById('newgame')
+       reStart.addEventListener('click',function(e) {
+             
+            location.reload()
+       } )
+       
+
       function wager(result) {
        let bet = document.getElementById("bet").valueAsNumber;  
           if (result === "won") {
@@ -739,19 +769,28 @@
            wager('won')
            reset = true
      }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21){
-           message.textContent='Sorry! The dealer had a higher score. You lost' + deal
+           message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
            wager('lost')
            reset = true
      }
 
         if (reset){
+          //reveal the hidden dealer's card and score
+          let dealerDiv = document.getElementById('dealerscore')
+          dealerDiv.textContent = 'Dealer Score:'+dealerScore
+          let dealr = document.querySelector('#dealer :nth-child(2)')
+          dealr.src=tempPic 
           document.getElementById("play-game").disabled = false
           document.getElementById("hit").disabled = true
           document.getElementById("stay").disabled = true
         }
-      
+        
+        
         if (money <= 0) {
-
+         money=0
+         message.textContent='Sorry! You lost AND you are out of money. Press New Game to start another game'
+         document.querySelector(".buttons").style.display="none"
+         document.getElementById('newgame').style.display="inline"
         } 
  
         let moneyLeft = document.getElementById('money')
