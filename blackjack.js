@@ -667,7 +667,7 @@
  
        }
 
-
+     //get a card 
      function getCard(person) {
           
          let card= DECK.pop();
@@ -686,7 +686,7 @@
      
           return card
       } 
-       
+       // reinitialize the deck of cards
      function resetGame () {
             initializeDeck()
             dealerHand =[]
@@ -717,9 +717,7 @@
        play.addEventListener('click',deal)
     
     
-      //  const rest= document.getElementById('reset')
-      //  rest.addEventListener('click',resetGame)
-      
+       
        const reStart =document.getElementById('newgame')
        reStart.addEventListener('click',function(e) {
              
@@ -727,6 +725,7 @@
        } )
        
 
+       // calculates the amount of money lost or won in a bet
       function wager(result) {
        let bet = document.getElementById("bet").valueAsNumber;  
           if (result === "won") {
@@ -735,7 +734,7 @@
                money -=  bet
           }
       } 
-        
+      // check to see if there is a winner
       function checkStatus () {
         let message = document.getElementById('textupdates')
         let deal = " Press Deal to continue playing"
@@ -761,7 +760,7 @@
              reset=true 
         }    
 
-       
+       // dealer must hold if the total of hand is 17 or more
 
       if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21) {
            message.textContent='You Tied!' + deal
@@ -787,7 +786,7 @@
           document.getElementById("stay").disabled = true
         }
         
-        
+        // if player runs out of money, they can start a new game
         if (money <= 0) {
          money=0
          message.textContent='Sorry! You lost AND you are out of money. Press New Game to start another game'
