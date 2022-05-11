@@ -593,10 +593,10 @@
          let dealr = document.querySelector('#dealer :nth-child(1)')
          dealr.src=tempPic
        }   
-       dealerScore =getScore(dealerHand,'d')
+       dealerScore =getScore(dealerHand)
        while(dealerScore < 17) {  
          dealerHand.push(getCard('dealer'));
-         dealerScore =getScore(dealerHand,'d')
+         dealerScore =getScore(dealerHand)
        }
        
        displayScore()
@@ -610,7 +610,7 @@
       hit.addEventListener('click', hitMe)
  
       
-    function getScore(cardArray,type) {
+    function getScore(cardArray) {
           
           let total = 0;
           let NumberofAces =0;
@@ -621,25 +621,25 @@
                 total += cardArray[i].NumberValue;
           }      
           //count aces as value 1 if it busts dealer
-        if (type === 'd'){
+        
           while (NumberofAces > 0 && total > 21) {
               total -= 10;
               NumberofAces -= 1;
           }
-        } 
+        
           return total;
       }
 
      function displayScore () {
           
-           dealerScore= getScore(dealerHand,'d')
+           dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
            if (dealerHand.length == 2 ){
             dealerDiv.textContent = 'Dealer Score:' + '? +' + dealerHand[1].NumberValue 
            } else {
            dealerDiv.textContent = 'Dealer Score:'+dealerScore
            }
-           playerScore= getScore(playerHand,'p')
+           playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
            playerDiv.textContent = 'Player Score:'+playerScore
     
