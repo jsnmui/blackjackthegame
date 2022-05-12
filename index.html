@@ -8,27 +8,26 @@
     <link rel="stylesheet" href="blackjack.css">
     <title>Black Jack Game</title>
   </head>
+   <h1>Black Jack</h1>
+    
+  <div class="container">           
+  <div id="dealerscore"></div>
+  <div id="dealer"></div>
   
-  
-      
-  
-      <h1>Black Jack</h1>
-     
-      <div class="container">           
-      <div id="dealerscore"></div>
-      <div id="dealer"></div>
-      <div id="textupdates" ></div> 
-      <div id="playerscore"></div>
-      <div id="player"></div>
-     </div>
-     <div id="money"></div> 
-    Bet Amount: 
+  <div id="playerscore"></div>
+  <div id="player"></div>
+  </div>
+  <div id="textupdates" ></div> 
+  <div id="money"></div> 
+    <div>
+    <span id="amt">Your Bet Amount</span> 
     <input type='number' id='bet' value="10"  min='1' max="100"/>
-     <div class="buttons">
-        <button id="play-game">Deal</button>
-        <button id="hit">Hit</button>
-        <button id="stay">Stand</button>
-      </div>
-        <button id="newgame">New Game</button>     
-    </body>
+    </div>
+    <div class="buttons">
+      <button id="play-game">Deal</button>
+      <button id="hit">Hit</button>
+      <button id="stay">Stand</button>
+    </div>
+      <button id="newgame">New Game</button>     
+  </body>
 </html>

@@ -590,7 +590,7 @@
       function stay() {
 
        if(playerHand.length  > 2  ){
-         let dealr = document.querySelector('#dealer :nth-child(1)')
+         let dealr = document.querySelector('#dealer :nth-child(2)')
          dealr.src=tempPic
        }   
        dealerScore =getScore(dealerHand)
@@ -600,7 +600,7 @@
        }
        
        displayScore()
-       checkStatus()
+       checkStatus('stay')
       }
 
       let stayBut = document.getElementById('stay')
@@ -635,7 +635,7 @@
            dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
            if (dealerHand.length == 2 ){
-            dealerDiv.textContent = 'Dealer Score:' + '? +' + dealerHand[1].NumberValue 
+            dealerDiv.textContent = 'Dealer Score:' + dealerHand[0].NumberValue + ' + ?'
            } else {
            dealerDiv.textContent = 'Dealer Score:'+dealerScore
            }
@@ -654,21 +654,20 @@
        dealerHand =[getCard("dealer"),getCard("dealer")]
        playerHand =[getCard("player"),getCard("player")]
        // save the image of the hidden card
-       tempPic = dealerHand[0].image
-       const dealr = document.querySelector('#dealer :nth-child(1)')
+       tempPic = dealerHand[1].image
+       const dealr = document.querySelector('#dealer :nth-child(2)')
        //replace the image with the back of a card
        dealr.src='cardback.jpg'      
-
+       let moneyLeft = document.getElementById('money')
+       moneyLeft.textContent = "Money Left: $" +money
        document.getElementById("play-game").disabled = true
        document.getElementById("hit").disabled = false 
        document.getElementById("stay").disabled = false
         
        displayScore()
        checkStatus()
-       console.log(DECK)
-       
- 
-       }
+  
+      }
 
      //get a card 
      function getCard(person) {
@@ -680,10 +679,12 @@
           let pic = document.createElement('img')
           pic.src= card.image
           div.appendChild(pic)
+          pic.style.margin = "10px 10px 10px 10px"
         } else if(person === 'dealer'){
           let div = document.getElementById('dealer')
           let pic = document.createElement('img')
           pic.src= card.image
+          pic.style.margin = "10px 10px 10px 10px"
           div.appendChild(pic)
         }
      
@@ -739,7 +740,7 @@
           }
       } 
       // check to see if there is a winner
-      function checkStatus () {
+    function checkStatus (stand) {
         let message = document.getElementById('textupdates')
         let deal = " Press Deal to continue playing"
         let reset = false; 
@@ -764,16 +765,17 @@
              reset=true 
         }    
 
-       // dealer must hold if the total of hand is 17 or more
+       // dealer must stand if the total of hand is 17 or more
+       
 
-      if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21) {
+      if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21 && stand === 'stay') {
            message.textContent='You Tied!' + deal
            reset = true
-     }else if (dealerScore >= 17 && playerScore > dealerScore && playerScore < 21) {
+     }else if (dealerScore >= 17 && playerScore > dealerScore && playerScore < 21 && stand ==='stay') {
            message.textContent='You beat the dealer! You won!' + deal
            wager('won')
            reset = true
-     }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21){
+     }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21 && stand ==='stay'){
            message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
            wager('lost')
            reset = true
@@ -783,7 +785,7 @@
           //reveal the dealer's hidden card and score
           let dealerDiv = document.getElementById('dealerscore')
           dealerDiv.textContent = 'Dealer Score:'+dealerScore
-          let dealr = document.querySelector('#dealer :nth-child(1)')
+          let dealr = document.querySelector('#dealer :nth-child(2)')
           dealr.src=tempPic 
           document.getElementById("play-game").disabled = false
           document.getElementById("hit").disabled = true
