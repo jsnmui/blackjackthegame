@@ -103,10 +103,9 @@ h1{
     grid-template-areas: "empty1 empty1 empty1 empty1 empty1 empty1"
                          "feed1 feed1 feed1 feed1 feed1 feed1"
                          "feed1 feed1 feed1 feed1 feed1 feed1"
-                         "feed1 feed1 feed1 feed1 feed1 feed1"
+                        "feed2 feed2 feed2 feed2 feed2 feed2"
                          "feed2 feed2 feed2 feed2 feed2 feed2"
-                         "feed2 feed2 feed2 feed2 feed2 feed2"
-                         "feed2 feed2 feed2 feed2 feed2 feed2"
+                         
                         ;
 }
 
