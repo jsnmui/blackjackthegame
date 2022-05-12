@@ -635,9 +635,9 @@
            dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
            if (dealerHand.length == 2 ){
-            dealerDiv.textContent = 'Dealer Score:' + dealerHand[0].NumberValue + ' + ?'
+            dealerDiv.innerHTML = 'Dealer Score:&nbsp' + dealerHand[0].NumberValue + ' + ?'
            } else {
-           dealerDiv.textContent = 'Dealer Score:'+dealerScore
+           dealerDiv.innerHTML = 'Dealer Score:&nbsp'+dealerScore
            }
            playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')

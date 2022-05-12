@@ -1,12 +1,11 @@
-  .container {
+.container {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 } 
 
 
-#textupdates
-{
+#textupdates {
     width:800px;
     height: 60px;
     margin-left: auto;
@@ -32,23 +31,19 @@ body {
     height: 100vh;
 }
 
-#dealer{
-    display:flex wrap;
-}
 
+/* resize card images*/
 #dealer img{
     width: 200px;
     height: auto
 }
 
-#player{
-    display:flex wrap;
-}
+
 
 #player img{
     width: 200px;
     height: auto
-}
+} 
 
 #playerscore{
     font-size: 40px;
@@ -99,4 +94,26 @@ h1{
 }
 #amt{
     font-size: 30px;
+}
+.container{
+    
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-areas: "empty1 empty1 empty1 empty1 empty1 empty1"
+                         "feed1 feed1 feed1 feed1 feed1 feed1"
+                         "feed1 feed1 feed1 feed1 feed1 feed1"
+                         "feed1 feed1 feed1 feed1 feed1 feed1"
+                         "feed2 feed2 feed2 feed2 feed2 feed2"
+                         "feed2 feed2 feed2 feed2 feed2 feed2"
+                         "feed2 feed2 feed2 feed2 feed2 feed2"
+                        ;
+}
+
+ 
+#dealer{
+    grid-area: feed1
+}
+#playerwrap{
+    grid-area: feed2
 }
