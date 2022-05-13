@@ -1,8 +1,11 @@
- 
+html { 
+    background-image: url(background.jpg);
+    background-size: cover;
+  }
 
 #textupdates {
-    width:800px;
-    height: 60px;
+     /* width:800px;
+    height: 60px;  */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -10,18 +13,12 @@
     font-size: 30px;
     margin-bottom: 20px;
     border-radius: 2rem;
+    
 }
 body {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center; 
+
     margin-top: 20px;
     color: white;
-    background-image: url(background.jpg);
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
 }
 
 
@@ -48,15 +45,18 @@ body {
 
 h1{
     font-size: 50px;
+    text-align: center
+   
      
 }
  h1 img{
      width: 300px;
      height: 100px;
+     
  }
 
-.buttons {
-    
+.buttons { 
+    margin:auto;
     color: red;
     text-align: center;
     width: 500px;
@@ -79,33 +79,10 @@ h1{
  
 #money{
     font-size: 30px;
-    color:red
-}
-
-#newgame{
-    display:none
-}
-#amt{
-    font-size: 30px;
-}
-.container{
-    
-    width: 100vw;
-    height: 100vh;
-    display:grid;
-    grid-template-areas: "empty1 empty1 empty1 empty1 empty1 empty1"
-                         "feed1 feed1 feed1 feed1 feed1 feed1"
-                         "feed1 feed1 feed1 feed1 feed1 feed1"
-                        "feed2 feed2 feed2 feed2 feed2 feed2"
-                         "feed2 feed2 feed2 feed2 feed2 feed2"
-                         
-                        ;
+    color: red;
 }
 
  
-#dealerwrap{
-    grid-area: feed1
-}
-#playerwrap{
-    grid-area: feed2
+#amt{
+    font-size: 30px;
 }

@@ -795,9 +795,10 @@
         // if player runs out of money, they can start a new game
         if (money <= 0) {
          money=0
-         message.textContent='Sorry! You lost AND you are out of money. Press New Game to start another game'
-         document.querySelector(".buttons").style.display="none"
-         document.getElementById('newgame').style.display="inline"
+         message.textContent='Sorry! You lost AND you are out of money. Press Restart to start another game'
+         document.getElementById('hit').style.display="none"
+         document.getElementById('stay').style.display="none"
+         document.getElementById('play-game').style.display="none"
         } 
  
         let moneyLeft = document.getElementById('money')
