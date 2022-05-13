@@ -86,3 +86,13 @@ h1{
 #amt{
     font-size: 30px;
 }
+
+#playerwrap{
+    position: relative;
+    left: 80px;
+}
+
+#dealerwrap { 
+    position: relative;
+    left: 80px;
+}

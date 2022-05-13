@@ -647,12 +647,13 @@
           
     
      
-
+     //start game by dealing two cards to player then dealer with the second card for the dealer placed faced down
      function deal () {
        resetGame()
        shuffleDeck(DECK)
-       dealerHand =[getCard("dealer"),getCard("dealer")]
        playerHand =[getCard("player"),getCard("player")]
+       dealerHand =[getCard("dealer"),getCard("dealer")]
+       
        // save the image of the hidden card
        tempPic = dealerHand[1].image
        const dealr = document.querySelector('#dealer :nth-child(2)')
