@@ -4,21 +4,33 @@
         document.getElementById("play-game").disabled = false
         document.getElementById("hit").disabled = true
         document.getElementById("stay").disabled = true
+        let message = document.getElementById('textupdates')
+        message.innerHTML = "Place your bet.<br>Press Deal to start playing."
          
       };
       //Card variables available to functionss 
       let DECK =  []
-      
+      // the numerical value of each card
       let numberValue = ''
+      //All the dealers cards
       let dealerHand =[]
+      //All the player's cards
       let playerHand =[]
+      // the dealer score for each round     
       let dealerScore=''
+      // the player score for each round  
       let playerScore=''
+      //The amount of money to ber
       let betAmount =''
       //temporary variable to hold the image link of hidden card
       let tempPic =''      
       //Initial amount of money for betting
-      let money = 100
+      let money = 200
+      //Total Number of wins for dealer
+      let dealWins = 0
+      ///Total Number of wins for player
+      let playerWins =0
+      //Initialize array of cards to hold image links 
       function initializeDeck(){
          
         DECK =  [
@@ -635,13 +647,14 @@
            dealerScore= getScore(dealerHand)
            let dealerDiv = document.getElementById('dealerscore')
            if (dealerHand.length == 2 ){
-            dealerDiv.innerHTML = 'Dealer Score:&nbsp' + dealerHand[0].NumberValue + ' + ?'
+            dealerDiv.innerHTML = 'Dealer\'s Cards:&nbsp' + dealerHand[0].NumberValue + ' + ?'
            } else {
-           dealerDiv.innerHTML = 'Dealer Score:&nbsp'+dealerScore
+           dealerDiv.innerHTML = 'Dealer\'s Cards:&nbsp'+dealerScore
            }
+           
            playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
-           playerDiv.textContent = 'Player Score:'+playerScore
+           playerDiv.textContent = 'Player\'s Cards:'+playerScore
     
       }
           
@@ -649,29 +662,30 @@
      
      //start game by dealing two cards to player then dealer with the second card for the dealer placed faced down
      function deal () {
-       resetGame()
-       shuffleDeck(DECK)
-       playerHand =[getCard("player"),getCard("player")]
-       dealerHand =[getCard("dealer"),getCard("dealer")]
-       
-       // save the image of the hidden card
-       tempPic = dealerHand[1].image
-       const dealr = document.querySelector('#dealer :nth-child(2)')
-       //replace the image with the back of a card
-       dealr.src='cardback.jpg'      
-       let moneyLeft = document.getElementById('money')
-       moneyLeft.textContent = "Money Left: $" +money
-       document.getElementById("play-game").disabled = true
-       document.getElementById("hit").disabled = false 
-       document.getElementById("stay").disabled = false
+      
+        resetGame()
+        shuffleDeck(DECK)
+        playerHand =[getCard("player"),getCard("player")]
+        dealerHand =[getCard("dealer"),getCard("dealer")]
         
-       displayScore()
-       checkStatus()
+        // save the image of the hidden card
+        tempPic = dealerHand[1].image
+        const dealr = document.querySelector('#dealer :nth-child(2)')
+        //replace the image with the back of a card
+        dealr.src='cardback.jpg'      
+        let moneyLeft = document.getElementById('money')
+        moneyLeft.textContent = "Money Left: $" +money
+        document.getElementById("play-game").disabled = true
+        document.getElementById("hit").disabled = false 
+        document.getElementById("stay").disabled = false
+          
+        displayScore()
+        checkStatus()
   
       }
 
      //get a card 
-     function getCard(person) {
+      function getCard(person) {
           
          let card= DECK.pop();
          
@@ -692,7 +706,7 @@
           return card
       } 
        // reinitialize the deck of cards
-     function resetGame () {
+      function resetGame () {
             initializeDeck()
             dealerHand =[]
             playerHand =[]
@@ -716,10 +730,17 @@
             document.getElementById("hit").disabled = true 
             document.getElementById("stay").disabled = true
           }
-    
+       
+        // Provide a a 1 second delay  
+       
+       function dealTime () {   
+          let message = document.getElementById('textupdates')
+          message.textContent = "Dealing cards..."
+          setTimeout(deal,1000)
+       }
          
        const play= document.getElementById('play-game')
-       play.addEventListener('click',deal)
+       play.addEventListener('click', dealTime)
     
     
        
@@ -740,19 +761,22 @@
                money -=  bet
           }
       } 
-      // check to see if there is a winner
-    function checkStatus (stand) {
+
+       // check to see if there is a winner
+     function checkStatus (stand) {
         let message = document.getElementById('textupdates')
         let deal = " Press Deal to continue playing"
         let reset = false; 
          if (dealerScore === 21) {
            message.textContent='Dealer wins with BLACK JACK!' + deal
            wager('lost')
-          reset = true 
+           reset = true
+           dealWins++ 
           } else if(dealerScore > 21){
            message.textContent='Dealer went over 21. You won!' + deal
            wager('won')
            reset=true 
+           playerWins++
          } 
          
          
@@ -760,6 +784,7 @@
              message.textContent='You got BLACK JACK!' + deal
              wager('won')
              reset=true
+             playerWins++
         } else if (playerScore > 21) {
              message.textContent='Sorry, You lost! You went over 21!' + deal
              wager('lost')
@@ -770,17 +795,26 @@
        
 
       if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21 && stand === 'stay') {
-           message.textContent='You Tied!' + deal
+           message.textContent='You Tied the Dealer!' + deal
            reset = true
      }else if (dealerScore >= 17 && playerScore > dealerScore && playerScore < 21 && stand ==='stay') {
            message.textContent='You beat the dealer! You won!' + deal
            wager('won')
            reset = true
+           playerWins++
      }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21 && stand ==='stay'){
            message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
            wager('lost')
            reset = true
+           dealWins++
      }
+
+           let dealerWins =document.getElementById('winsd')
+           dealerWins.innerHTML= 'Total Wins:&nbsp'  + dealWins
+
+           
+           let playWins =document.getElementById('winsp')
+           playWins.innerHTML= 'Total Wins:&nbsp'  +  playerWins
 
         if (reset){
           //reveal the dealer's hidden card and score
@@ -804,4 +838,26 @@
  
         let moneyLeft = document.getElementById('money')
         moneyLeft.textContent = "Money Left: $" +money
-}
+
+        
+  } 
+    //put the value of betships into the betting input box
+    function setbetChips( chipvalue ){
+        let betInput = document.getElementById('bet')
+        betInput.value = chipvalue; 
+    } 
+    
+
+    let betChips = document.getElementById('betting')
+    //add event listener to the parent to listen to the children
+    betChips.addEventListener('click', function (e) {
+        
+        if (e.target.id==="10chp") {
+           setbetChips(10);
+        }else if (e.target.id==="25chp"){
+           setbetChips(25);
+        } else if (e.target.id==="50chp"){
+          setbetChips(50);
+        }
+
+      });
