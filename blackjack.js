@@ -609,11 +609,13 @@
          let dealr = document.querySelector('#dealer :nth-child(2)')
          dealr.src=tempPic
        }   
+    
        dealerScore =getScore(dealerHand)
        while(dealerScore < 17) {  
          dealerHand.push(getCard('dealer'));
          dealerScore =getScore(dealerHand)
        }
+      
        
        displayScore()
        checkStatus('stay')
@@ -690,6 +692,8 @@
 
      //get a card 
       function getCard(person) {
+       
+                     
 
          let card= DECK.pop();
          
@@ -708,7 +712,10 @@
         }
      
           return card
+
+        
       } 
+
        // reinitialize the deck of cards
       function resetGame () {
             initializeDeck()

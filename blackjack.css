@@ -1,197 +1,204 @@
-html { 
-    background-image: url(background.jpg);
-    background-size: cover;
+  html { 
+      background-image: url(background.jpg);
+      background-size: cover;
+    }
+
+  #textupdates {
+      
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      margin-bottom: 20px;
+      border-radius: 2rem;
+      
+  }
+  body {
+
+      margin-top: 20px;
+      color: white;
   }
 
-#textupdates {
-     
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 20px;
-    border-radius: 2rem;
+
+  /* resize card images*/
+  #dealer img{
+      width: 200px;
+      height: auto
+  }
+
+
+
+  #player img{
+      width: 200px;
+      height: auto
+  } 
+
+  #playerscore{
+      font-size: 40px;
+  }
+
+  #dealerscore{
+      font-size: 40px;
+  }
+
+  h1{
+      font-size: 50px;
+      text-align: center
     
-}
-body {
+      
+  }
 
-    margin-top: 20px;
-    color: white;
-}
+  h1 img{
+      width: 300px;
+      height: 100px;
+      
+  }
+
+  .buttons { 
+      margin:auto;
+      display:flex;
+      text-align: center;
+      width: 500px;
+      padding: 10px;
+  }
+
+  .buttons h3 {
+      
+      padding: 5px;
+  }
 
 
-/* resize card images*/
-#dealer img{
-    width: 200px;
-    height: auto
-}
+  
+  #money{
+      font-size: 30px;
+      
+  }
 
+  
+  #amt{
+      font-size: 30px;
+  }
 
+  #playerwrap{
+      position: relative;
+      left: 80px;
+  }
 
-#player img{
-    width: 200px;
-    height: auto
-} 
+  #dealerwrap { 
+      position: relative;
+      left: 80px;
+  }
+      
 
-#playerscore{
-    font-size: 40px;
-}
+  #winsd{
+      position: absolute;
+      top: 8px;
+      left: 500px;
+      font-size: 40px;
+  }
+  #winsp{
+      position: absolute;
+      top: 8px;
+      left: 500px;
+      font-size: 40px;
+  }
 
-#dealerscore{
-    font-size: 40px;
-}
+  
+  #betting img{
+      width: 100px;
+      height: auto;
+      padding: 5px;
+  }
 
-h1{
-    font-size: 50px;
-    text-align: center
-   
-     
-}
-
- h1 img{
-     width: 300px;
-     height: 100px;
-     
- }
-
-.buttons { 
-    margin:auto;
+  #betting {
     display:flex;
-    text-align: center;
-    width: 500px;
-    padding: 10px;
-}
+    justify-content: space-evenly;
+    align-items:center
+  }
+  /* Displays game goals and card values */
+  #instructions{
+      font-size: 20px;
+  }
 
-.buttons h3 {
-     
-    padding: 5px;
-}
-
-
- 
-#money{
-    font-size: 30px;
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
     
-}
-
- 
-#amt{
-    font-size: 30px;
-}
-
-#playerwrap{
-    position: relative;
-    left: 80px;
-}
-
-#dealerwrap { 
-    position: relative;
-    left: 80px;
-}
+    /* Modal Content/Box */
+    .modal-content {
+      color:green;  
+      font-size: 30px;
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
     
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-#winsd{
-    position: absolute;
-    top: 8px;
-    left: 500px;
-    font-size: 40px;
-}
-#winsp{
-    position: absolute;
-    top: 8px;
-    left: 500px;
-    font-size: 40px;
-}
+    /* buttons */
+  button {
+      border:none;
+      border-radius: 5px;
+      padding: 15px 25px;
+      font-size: 20px;
+      text-decoration: none;
+      margin: 10px;
+      color: #F6F7EB;
+      position: relative;
+      display: inline-block;
+      font-family: Gill Sans;
+      text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
+    }
+    
+    button:active {
+      transform: translate(0px, 5px);
+      
+    } 
+    
+    .blue {
+      background-color: #55acee;
+      box-shadow: 0px 5px 0px 0px #3C93D5;
+    }
+    
+    .blue:hover {
+      background-color: #6FC6FF;
+    }
+    
+    .green {
+      background-color: #2ecc71;
+      box-shadow: 0px 5px 0px 0px #15B358;
+    }
 
- 
-#betting img{
-    width: 100px;
-    height: auto;
-    padding: 5px;
-}
+    .green:hover {
+      background-color: #6fffab;
+    }
 
-#betting {
-  display:flex;
-  justify-content: space-evenly;
-  align-items:center
-}
-/* Displays game goals and card values */
-#instructions{
-    font-size: 20px;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    color:green;  
-    font-size: 30px;
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  /* buttons */
-button {
-    border:none;
-    border-radius: 5px;
-    padding: 15px 25px;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 10px;
-    color: #F6F7EB;
-    position: relative;
-    display: inline-block;
-    font-family: Gill Sans;
-    text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
-  }
-  
-  button:active {
-    transform: translate(0px, 5px);
-    -webkit-transform: translate(0px, 5px);
-    box-shadow: 0px .5px 0px 0px;
-  }
-  
-  .blue {
-    background-color: #55acee;
-    box-shadow: 0px 5px 0px 0px #3C93D5;
-  }
-  
-  .blue:hover {
-    background-color: #6FC6FF;
-  }
-  
-  .green {
-    background-color: #2ecc71;
-    box-shadow: 0px 5px 0px 0px #15B358;
-  }
+    .red:hover{
+      background-color: crimson;
+    }
