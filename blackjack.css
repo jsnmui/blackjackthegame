@@ -56,8 +56,8 @@ h1{
  }
 
 .buttons { 
-    margin:auto; 
-    color: red;
+    margin:auto;
+    display:flex;
     text-align: center;
     width: 500px;
     padding: 10px;
@@ -68,13 +68,6 @@ h1{
     padding: 5px;
 }
 
-.inner {
-    
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
  
 #money{
@@ -166,4 +159,39 @@ h1{
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  /* buttons */
+button {
+    border:none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px;
+    color: #F6F7EB;
+    position: relative;
+    display: inline-block;
+    font-family: Gill Sans;
+    text-shadow: 1px 1px 2px rgba(10, 10, 10, 1);
+  }
+  
+  button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px .5px 0px 0px;
+  }
+  
+  .blue {
+    background-color: #55acee;
+    box-shadow: 0px 5px 0px 0px #3C93D5;
+  }
+  
+  .blue:hover {
+    background-color: #6FC6FF;
+  }
+  
+  .green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15B358;
   }

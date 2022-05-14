@@ -6,6 +6,10 @@
         document.getElementById("stay").disabled = true
         let message = document.getElementById('textupdates')
         message.innerHTML = "Place your bet.<br>Press Deal to start playing."
+        let moneyLeft = document.getElementById('money')
+        money=200
+        moneyLeft.textContent = "Money: $" +money
+
          
       };
       //Card variables available to functionss 
@@ -686,7 +690,7 @@
 
      //get a card 
       function getCard(person) {
-          
+
          let card= DECK.pop();
          
          if (person === 'player'){            
@@ -842,14 +846,21 @@
         } 
  
         let moneyLeft = document.getElementById('money')
-        moneyLeft.textContent = "Money Left: $" +money
+        moneyLeft.textContent = "Money: $" +money
 
         
     } 
       //put the value of betships into the betting input box
       function setbetChips( chipvalue ){
           let betInput = document.getElementById('bet')
-          betInput.value  = Number (betInput.value) + Number(chipvalue); 
+          let total = Number (betInput.value) + Number(chipvalue); 
+          
+         if ( total > money) {
+            alert('You cannot bet more money than you have. Please enter a valid amount.') 
+            betInput.value =0
+         } else {
+            betInput.value  = total
+         } 
       } 
       
 
