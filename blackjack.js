@@ -654,7 +654,7 @@
            
            playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
-           playerDiv.textContent = 'Player\'s Score:'  + playerScore
+           playerDiv.textContent = 'Player\'s Score: '  + playerScore
     
       }
           
@@ -771,6 +771,7 @@
        
         // Check for all possible conditions for 21
         //a Black Jack occurs if the initial hand is an Ace or a 10 point card
+         // dealer must stand if the total of hand is 17 or more
          if (dealerScore ===21 && playerScore ===21){
             message.textContent='You are tied with the Dealer!' + deal
             reset=true
@@ -798,37 +799,32 @@
             message.textContent='Sorry, You BUSTED!' + deal
             wager('lost')
             reset=true 
-        }    
-
-       // dealer must stand if the total of hand is 17 or more
-       
-
-        if (dealerScore>= 17 && playerScore === dealerScore && dealerScore <= 21 && stand === 'stay') {
-              message.textContent='You tied the Dealer!' + deal
-              reset = true
-        } else if (dealerScore >= 17 && playerScore > dealerScore && playerScore <= 21 && stand ==='stay') {
-              message.textContent='You beat the dealer! You won!' + deal
-              wager('won')
-              reset = true
-              playerWins++
-        }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore <= 21 && stand ==='stay'){
-              message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
-              wager('lost')
-              reset = true
-              dealWins++
+        }  else if (dealerScore>= 17 && playerScore === dealerScore && dealerScore <= 21 && stand === 'stay') {
+            message.textContent='You tied the Dealer!' + deal
+            reset = true
+        }  else if (dealerScore >= 17 && playerScore > dealerScore && playerScore <= 21 && stand ==='stay') {
+            message.textContent='You beat the dealer! You won!' + deal
+            wager('won')
+            reset = true
+            playerWins++
+        }  else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore <= 21 && stand ==='stay'){
+            message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
+            wager('lost')
+            reset = true
+            dealWins++
         }
 
-           let dealerWins =document.getElementById('winsd')
+          let dealerWins =document.getElementById('winsd')
            dealerWins.innerHTML= 'Total Wins:&nbsp'  + dealWins
 
            
-           let playWins =document.getElementById('winsp')
-           playWins.innerHTML= 'Total Wins:&nbsp'  +  playerWins
+          let playWins =document.getElementById('winsp')
+          playWins.innerHTML= 'Total Wins:&nbsp'  +  playerWins
 
         if (reset){
           //reveal the dealer's hidden card and score
           let dealerDiv = document.getElementById('dealerscore')
-          dealerDiv.textContent = 'Dealer Score:'+dealerScore
+          dealerDiv.textContent = 'Dealer Score: '+dealerScore
           let dealr = document.querySelector('#dealer :nth-child(2)')
           dealr.src=tempPic 
           document.getElementById("play-game").disabled = false
@@ -850,33 +846,33 @@
 
         
     } 
-    //put the value of betships into the betting input box
-    function setbetChips( chipvalue ){
-        let betInput = document.getElementById('bet')
-        betInput.value = chipvalue; 
-    } 
-    
+      //put the value of betships into the betting input box
+      function setbetChips( chipvalue ){
+          let betInput = document.getElementById('bet')
+          betInput.value  = Number (betInput.value) + Number(chipvalue); 
+      } 
+      
 
-    let betChips = document.getElementById('betting')
-    //add event listener to the parent to listen to the children
-    betChips.addEventListener('click', function (e) {
-        
-        if (e.target.id==="10chp") {
-           setbetChips(10);
-        }else if (e.target.id==="25chp"){
-           setbetChips(25);
-        } else if (e.target.id==="50chp"){
-          setbetChips(50);
-        }
+      let betChips = document.getElementById('betting')
+      //add event listener to the parent to listen to the children
+      betChips.addEventListener('click', function (e) {
+          
+          if (e.target.id==="10chp") {
+            setbetChips(10);
+          }else if (e.target.id==="25chp"){
+            setbetChips(25);
+          } else if (e.target.id==="50chp"){
+            setbetChips(50);
+          }
 
-      });
+        });
 
 
 
       // Get the modal
       let modal = document.getElementById("myModal");
 
-      // Get the button that opens the modal
+      // Get the element that opens the modal
       let instruct = document.getElementById("instructions");
 
        // When the user clicks on the the Instructions, open the modal
@@ -891,7 +887,7 @@
       
       
       // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
+        span.onclick = function() {
         modal.style.display = "none";
       }
 
