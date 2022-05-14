@@ -654,7 +654,7 @@
            
            playerScore= getScore(playerHand)
            let playerDiv = document.getElementById('playerscore')
-           playerDiv.textContent = 'Player\'s Cards:'+playerScore
+           playerDiv.textContent = 'Player\'s Score:'  + playerScore
     
       }
           
@@ -752,7 +752,7 @@
        
 
        // calculates the amount of money lost or won in a bet
-      function wager(result) {
+     function wager(result) {
        let bet = document.getElementById("bet").value; 
          bet = Number(bet)
           if (result === "won") {
@@ -766,48 +766,57 @@
      function checkStatus (stand) {
         let message = document.getElementById('textupdates')
         let deal = " Press Deal to continue playing"
-        let reset = false; 
-         if (dealerScore === 21) {
-           message.textContent='Dealer wins with BLACK JACK!' + deal
-           wager('lost')
-           reset = true
-           dealWins++ 
-          } else if(dealerScore > 21){
-           message.textContent='Dealer went over 21. You won!' + deal
-           wager('won')
-           reset=true 
-           playerWins++
-         } 
-         
-         
-        if (playerScore === 21) {
-             message.textContent='You got BLACK JACK!' + deal
-             wager('won')
-             reset=true
-             playerWins++
+        let reset = false
+
+       
+        // Check for all possible conditions for 21
+        //a Black Jack occurs if the initial hand is an Ace or a 10 point card
+         if (dealerScore ===21 && playerScore ===21){
+            message.textContent='You are tied with the Dealer!' + deal
+            reset=true
+         } else if (dealerScore === 21 && dealerHand.length ===2) {
+            message.textContent='Dealer wins with BLACK JACK!' + deal
+            wager('lost')
+            reset = true
+            dealWins++ 
+         } else if(dealerScore > 21){
+            message.textContent='Dealer BUSTED. You won!' + deal
+            wager('won')
+            reset=true 
+            playerWins++
+        } else if (playerScore === 21 && playerHand.length === 2) {
+            message.textContent='You got BLACK JACK!' + deal
+            wager('won')
+            reset=true
+            playerWins++
+        } else if (playerScore === 21 ) {
+            message.textContent='You win with 21 !' + deal
+            wager('won')
+            reset=true
+            playerWins++    
         } else if (playerScore > 21) {
-             message.textContent='Sorry, You lost! You went over 21!' + deal
-             wager('lost')
-             reset=true 
+            message.textContent='Sorry, You BUSTED!' + deal
+            wager('lost')
+            reset=true 
         }    
 
        // dealer must stand if the total of hand is 17 or more
        
 
-      if (dealerScore>= 17 && playerScore === dealerScore && dealerScore < 21 && stand === 'stay') {
-           message.textContent='You Tied the Dealer!' + deal
-           reset = true
-     }else if (dealerScore >= 17 && playerScore > dealerScore && playerScore < 21 && stand ==='stay') {
-           message.textContent='You beat the dealer! You won!' + deal
-           wager('won')
-           reset = true
-           playerWins++
-     }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore < 21 && stand ==='stay'){
-           message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
-           wager('lost')
-           reset = true
-           dealWins++
-     }
+        if (dealerScore>= 17 && playerScore === dealerScore && dealerScore <= 21 && stand === 'stay') {
+              message.textContent='You tied the Dealer!' + deal
+              reset = true
+        } else if (dealerScore >= 17 && playerScore > dealerScore && playerScore <= 21 && stand ==='stay') {
+              message.textContent='You beat the dealer! You won!' + deal
+              wager('won')
+              reset = true
+              playerWins++
+        }else if (dealerScore >= 17 && playerScore < dealerScore && dealerScore <= 21 && stand ==='stay'){
+              message.textContent='Sorry! The dealer had a higher score. You lost.' + deal
+              wager('lost')
+              reset = true
+              dealWins++
+        }
 
            let dealerWins =document.getElementById('winsd')
            dealerWins.innerHTML= 'Total Wins:&nbsp'  + dealWins
@@ -840,7 +849,7 @@
         moneyLeft.textContent = "Money Left: $" +money
 
         
-  } 
+    } 
     //put the value of betships into the betting input box
     function setbetChips( chipvalue ){
         let betInput = document.getElementById('bet')
@@ -861,3 +870,34 @@
         }
 
       });
+
+
+
+      // Get the modal
+      let modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      let instruct = document.getElementById("instructions");
+
+       // When the user clicks on the the Instructions, open the modal
+      instruct.addEventListener('mouseover',function(e){
+            modal.style.display = "block";
+      })
+      
+
+      // Get the <span> element that closes the modal
+      let span = document.getElementsByClassName("close")[0];
+
+      
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
