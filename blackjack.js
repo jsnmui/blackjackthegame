@@ -582,7 +582,7 @@
         
       function shuffleDeck () {
              
-                 //for 1000 iterations, swap two random cards in the deck
+                 //Loop though the deck and swap each card with another random card
                 for (let idx = 0; idx < DECK.length ; idx++)
                 {
                    let idx2 = Math.floor(Math.random() * DECK.length  )
@@ -594,7 +594,8 @@
             
                
            }
-         
+      //  Player receives a card from the dealer
+
       function hitMe () {
       
         playerHand.push(getCard('player'))
@@ -603,11 +604,13 @@
 
       }    
      
+      // Player  deosn't want another card ends his turn
+
       function stay() {
 
        if(playerHand.length  > 2  ){
          let dealr = document.querySelector('#dealer :nth-child(2)')
-         dealr.src=tempPic
+         dealr.src=tempPic       //put back the original card image to reveal the card
        }   
     
        dealerScore =getScore(dealerHand)
@@ -627,7 +630,7 @@
       let hit= document.getElementById('hit')        
       hit.addEventListener('click', hitMe)
  
-      
+     //get the score for the player  
     function getScore(cardArray) {
           
           let total = 0;
@@ -647,7 +650,7 @@
         
           return total;
       }
-
+      //show the current score for each player
      function displayScore () {
           
            dealerScore= getScore(dealerHand)
@@ -666,7 +669,7 @@
           
     
      
-     //start game by dealing two cards to player then dealer with the second card for the dealer placed faced down
+     //start game round by dealing two cards to player then dealer with the second card for the dealer placed faced down
      function deal () {
         
         resetGame()
@@ -678,18 +681,19 @@
         tempPic = dealerHand[1].image
         const dealr = document.querySelector('#dealer :nth-child(2)')
         //replace the image with the back of a card
-        dealr.src='cardback.jpg'      
+        dealr.src='./images/cardback.jpg'      
         let moneyLeft = document.getElementById('money')
         moneyLeft.textContent = "Money Left: $" +money
         document.getElementById("play-game").style.display = 'none'
         document.getElementById('hit').style.display="block"
         document.getElementById('stay').style.display="block"  
+        document.getElementById("bet").disabled = true;
         displayScore()
         checkStatus()
   
       }
 
-     //get a card 
+     //get a card  from the deck
       function getCard(person) {
        
          let card= DECK.pop();
@@ -713,7 +717,7 @@
         
       } 
 
-       // reinitialize the deck of cards
+       // clear the card objects from the screen and reinitialize the deck of cards
       function resetGame () {
             initializeDeck()
             dealerHand =[]
@@ -777,10 +781,10 @@
           }
       } 
 
-       // check to see if there is a winner
+       // check to see if there is a winner and if the player has enought money to continue
      function checkStatus (stand) {
         let message = document.getElementById('textupdates')
-        let deal = " Press Deal to continue playing"
+        let deal = " Enter another bet and Press Deal to continue playing"
         let reset = false
 
        
@@ -845,6 +849,8 @@
           document.getElementById("play-game").style.display =""
           document.getElementById("hit").style.display='none' 
           document.getElementById("stay").style.display='none'
+          document.getElementById("bet").disabled = false;
+          document.getElementById("bet").value = 0; 
         }
         
         // if player runs out of money, they can start a new game

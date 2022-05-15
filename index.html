@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./blackjack.js" defer></script>
-    <link rel="stylesheet" href="blackjack.css">
+    <link rel="stylesheet" href="./css/blackjack.css">
     <title>Black Jack Game</title>
   </head>
   <body>
@@ -21,12 +21,13 @@
                         <p><strong>Goal</strong> Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.</p>
                         <p><strong>Gameplay</strong></p> 
                         <ul>
+                          <li>Place a bet by clicking on the chips.</li>
+                          <li>Press 'DEAL' to begin a new round.</li>
                           <li>The dealer and player are initially dealt 2 cards each.</li>
                           <li>The dealer's second card will be placed face down. </li>
                           <li>You can choose to either hit (receive more cards) or stand (end your turn).</li> 
                           <li>The dealer must draw on 16 or under and must stand on 17 or over.</li> 
                           <li>You can hit as many times as you choose so long as your deck is under 21.</li>
-                          <li>You can place bets by clicking on the betting chips.</li>
                           <li>Game is over when you run out of money.</li>
                           <li>Press RESTART to reset the game.</li>
                         </ul>  
@@ -53,10 +54,10 @@
                     </div>
                     <div id="textupdates" ></div> 
                     <div id="betting">
-                      <img src="10.png" id="10chp">
-                      <img src="25.png" id="25chp">
-                      <img src="50.png" id="50chp">
-                      <img src="100.png" id="100chp">
+                      <img src="./images/10.png" id="10chp">
+                      <img src="./images/25.png" id="25chp">
+                      <img src="./images/50.png" id="50chp">
+                      <img src="./images/100.png" id="100chp">
                       <div id="amt">Your Bet Amount</div> 
                     <div> <input type='number' id='bet' value="0"  min='1' max="100"  /></div>
                       <div id="money"></div> 
