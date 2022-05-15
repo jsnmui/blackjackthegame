@@ -7,8 +7,8 @@
         let message = document.getElementById('textupdates')
         message.innerHTML = "Place your bet.<br>Press Deal to start playing."
         let moneyLeft = document.getElementById('money')
-        money=200
-        moneyLeft.textContent = "Money: $" +money
+        money=500
+        moneyLeft.textContent = "Bank: $" +money
 
          
       };
@@ -29,7 +29,7 @@
       //temporary variable to hold the image link of hidden card
       let tempPic =''      
       //Initial amount of money for betting
-      let money = 200
+      let money = 500
       //Total Number of wins for dealer
       let dealWins = 0
       ///Total Number of wins for player
@@ -668,7 +668,7 @@
      
      //start game by dealing two cards to player then dealer with the second card for the dealer placed faced down
      function deal () {
-      
+        
         resetGame()
         shuffleDeck(DECK)
         playerHand =[getCard("player"),getCard("player")]
@@ -740,20 +740,28 @@
             document.getElementById("play-game").disabled = false 
             document.getElementById("hit").disabled = true 
             document.getElementById("stay").disabled = true
+             
           }
        
         // Provide a a 1 second delay  
        
        function dealTime () {   
-          let message = document.getElementById('textupdates')
-          message.textContent = "Dealing cards..."
-          setTimeout(deal,1000)
+        let betInput = document.getElementById('bet')
+        let betMoney = Number(betInput.value)
+      
+        if ( betMoney='' || betMoney <=0) {
+           alert('Please enter a valid bet amount.')
+         } else {
+            let message = document.getElementById('textupdates')
+            message.textContent = "Dealing cards..."
+            setTimeout(deal,1000)
+         }   
        }
          
        const play= document.getElementById('play-game')
        play.addEventListener('click', dealTime)
     
-    
+      
        
        const reStart =document.getElementById('newgame')
        reStart.addEventListener('click',function(e) {
@@ -853,7 +861,7 @@
         } 
  
         let moneyLeft = document.getElementById('money')
-        moneyLeft.textContent = "Money: $" +money
+        moneyLeft.textContent = "Bank: $" +money
 
         
     } 
@@ -881,8 +889,9 @@
             setbetChips(25);
           } else if (e.target.id==="50chp"){
             setbetChips(50);
+          } else if (e.target.id==="100chp"){
+            setbetChips(100);
           }
-
         });
 
 
