@@ -5,22 +5,22 @@
  
 
 ## Explanations of specific Technologies 
-###HTML 
+### HTML 
 HTML is a language used to describe the content and structure of our documents. 
 HTML elements that show things like text, images, and lists
 Elements have attributes that allow us to add additional information
 Elements can contain other elements
 
-###CSS
+### CSS
 Rules that specify how your elements should appear or look on your page.
 
-###JavaSCript 
+### JavaSCript 
 JavaScript is a programming language used both on the client-side and server-side that allows you to make web pages interactive
 
 ## Game Instructions
 Goal Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.
 
-###Gameplay
+### Gameplay
 
 *The dealer and player are initially dealt 2 cards each.
 *The dealer's second card will be placed face down.
@@ -30,7 +30,7 @@ Goal Beat the dealer by getting a hand as close to 21 as possible, without going
 *You can place bets by clicking on the betting chips or entering a value in the input box.
 *Game is over when you run out of money.
 *Press RESTART to reset the game.
-###Card Values
+### Card Values
 
 *Jacks, Kings, and Queens are worth 10 points.
 *Number cards are worth their face value.
