@@ -4,19 +4,17 @@
     }
 
   #textupdates {
-      
+      height:80px;
+      width:auto;     
       margin-left: auto;
       margin-right: auto;
       text-align: center;
       font-weight: bold;
       font-size: 30px;
-      margin-bottom: 20px;
       border-radius: 2rem;
       
   }
   body {
-
-      margin-top: 20px;
       color: white;
   }
 
