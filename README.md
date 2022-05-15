@@ -18,7 +18,8 @@ Rules that specify how your elements should appear or look on your page.
 JavaScript is a programming language used both on the client-side and server-side that allows you to make web pages interactive
 
 ## Game Instructions
-Goal Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.
+## Goal
+ Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.
 
 ### Gameplay
 
