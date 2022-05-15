@@ -26,19 +26,19 @@ The Document Object Model (DOM) is a programming interface for web documents. It
 
 ### Gameplay
 
-*The dealer and player are initially dealt 2 cards each.
-*The dealer's second card will be placed face down.
-*You can choose to either hit (receive more cards) or stand (end your turn).
-*The dealer must draw on 16 or under and must stand on 17 or over.
-*You can hit as many times as you choose so long as your deck is under 21.
-*You can place bets by clicking on the betting chips or entering a value in the input box.
-*Game is over when you run out of money.
-*Press RESTART to reset the game.
+* The dealer and player are initially dealt 2 cards each.
+* The dealer's second card will be placed face down.
+* You can choose to either hit (receive more cards) or stand (end your turn).
+* The dealer must draw on 16 or under and must stand on 17 or over.
+* You can hit as many times as you choose so long as your deck is under 21.
+* You can place bets by clicking on the betting chips or entering a value in the input box.
+* Game is over when you run out of money.
+* Press RESTART to reset the game.
 ### Card Values
 
-*Jacks, Kings, and Queens are worth 10 points.
-*Number cards are worth their face value.
-*Aces can be worth either 11 or 1.
-*Aces have a default value of 11 unless that would result in a total score over 21. In that case, it is worth 1 point.
+* Jacks, Kings, and Queens are worth 10 points.
+* Number cards are worth their face value.
+* Aces can be worth either 11 or 1.
+* Aces have a default value of 11 unless that would result in a total score over 21. In that case, it is worth 1 point.
 
 
