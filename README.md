@@ -4,7 +4,7 @@
 ![alt text](https://github.com/jsnmui/blackjackthegame/blob/main/wireframe.jpg  "wire frame")
  
 
-## Explanations of specific Technologies 
+## Explanations of specific technologies 
 ### HTML 
 HTML is a language used to describe the content and structure of our documents. 
 HTML elements that show things like text, images, and lists
@@ -14,11 +14,14 @@ Elements can contain other elements
 ### CSS
 Rules that specify how your elements should appear or look on your page.
 
-### JavaSCript 
+### JavaScript 
 JavaScript is a programming language used both on the client-side and server-side that allows you to make web pages interactive
 
+### Document Object Model (DOM)
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
+
 ## Game Instructions
-## Goal
+### Goal
  Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.
 
 ### Gameplay

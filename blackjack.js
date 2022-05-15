@@ -2,8 +2,8 @@
       window.onload = (event) => {
         // disable HIT and STAY buttons before cards are dealt 
         document.getElementById("play-game").disabled = false
-        document.getElementById("hit").disabled = true
-        document.getElementById("stay").disabled = true
+        document.getElementById('hit').style.display="none"
+         document.getElementById('stay').style.display="none"
         let message = document.getElementById('textupdates')
         message.innerHTML = "Place your bet.<br>Press Deal to start playing."
         let moneyLeft = document.getElementById('money')
@@ -681,10 +681,9 @@
         dealr.src='cardback.jpg'      
         let moneyLeft = document.getElementById('money')
         moneyLeft.textContent = "Money Left: $" +money
-        document.getElementById("play-game").disabled = true
-        document.getElementById("hit").disabled = false 
-        document.getElementById("stay").disabled = false
-          
+        document.getElementById("play-game").style.display = 'none'
+        document.getElementById('hit').style.display="block"
+        document.getElementById('stay').style.display="block"  
         displayScore()
         checkStatus()
   
@@ -738,8 +737,7 @@
             const message = document.getElementById('textupdates')
             message.textContent=''
             document.getElementById("play-game").disabled = false 
-            document.getElementById("hit").disabled = true 
-            document.getElementById("stay").disabled = true
+            
              
           }
        
@@ -846,9 +844,9 @@
           dealerDiv.textContent = 'Dealer Score: '+dealerScore
           let dealr = document.querySelector('#dealer :nth-child(2)')
           dealr.src=tempPic 
-          document.getElementById("play-game").disabled = false
-          document.getElementById("hit").disabled = true
-          document.getElementById("stay").disabled = true
+          document.getElementById("play-game").style.display =""
+          document.getElementById("hit").style.display='none' 
+          document.getElementById("stay").style.display='none'
         }
         
         // if player runs out of money, they can start a new game
