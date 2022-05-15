@@ -1,7 +1,7 @@
 # Black Jack
 ## This is a project to implement a version of the game Black Jack
 ## wireframe
-![alt text]https://github.com/jsnmui/blackjackthegame/blob/main/wireframe.jpg 
+![alt text](https://github.com/jsnmui/blackjackthegame/blob/main/wireframe.jpg  "wire frame")
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 
