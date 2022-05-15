@@ -11,7 +11,10 @@
       border-radius: 2rem;
       
   }
+  
   body {
+    height: 100vh;
+    width: 100%;
       color: white;
       background-image: url(background.jpg);
       background-size: cover;
