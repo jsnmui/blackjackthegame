@@ -9,63 +9,64 @@
     <title>Black Jack Game</title>
   </head>
   <body>
-     <span id="instructions" >Instructions</span> <h1><img src="https://www.firstcomicsnews.com/wp-content/uploads/2019/12/Blackjack-logo-600x257.png" alt ='Black Jack'></h1>
-      <!-- Trigger/Open The Modal -->
-     <!-- The Modal -->
-    <div id="myModal" class="modal">
+      <div class="container">
+                <span id="instructions" >Instructions</span> <h1><img src="https://www.firstcomicsnews.com/wp-content/uploads/2019/12/Blackjack-logo-600x257.png" alt ='Black Jack'></h1>
+            
+                <!-- The Modal -->
+                    <div id="myModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p><strong>Goal</strong> Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.</p>
-			  <p><strong>Gameplay</strong></p> 
-        <ul>
-           <li>The dealer and player are initially dealt 2 cards each.</li>
-           <li>The dealer's second card will be placed face down. </li>
-           <li>You can choose to either hit (receive more cards) or stand (end your turn).</li> 
-           <li>The dealer must draw on 16 or under and must stand on 17 or over.</li> 
-           <li>You can hit as many times as you choose so long as your deck is under 21.</li>
-           <li>You can place bets by clicking on the betting chips.</li>
-           <li>Game is over when you run out of money.</li>
-           <li>Press RESTART to reset the game.</li>
-        </ul>  
-           <p><strong>Card Values</strong></p> 
-           <ul>
-              <li>Jacks, Kings, and Queens are worth 10 points.</li> 
-              <li>Number cards are worth their face value.</li> 
-              <li>Aces can be worth either 11 or 1.</li> 
-              <li>An Ace has a default value of 11 unless that would result in a hand with a total score over 21. In that case, it is worth 1 point.</li>
-           </ul>   
-      </div>
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p><strong>Goal</strong> Beat the dealer by getting a hand as close to 21 as possible, without going over 21. A blackjack occurs when you get one ace and one 10 point card on the first hand.</p>
+                        <p><strong>Gameplay</strong></p> 
+                        <ul>
+                          <li>The dealer and player are initially dealt 2 cards each.</li>
+                          <li>The dealer's second card will be placed face down. </li>
+                          <li>You can choose to either hit (receive more cards) or stand (end your turn).</li> 
+                          <li>The dealer must draw on 16 or under and must stand on 17 or over.</li> 
+                          <li>You can hit as many times as you choose so long as your deck is under 21.</li>
+                          <li>You can place bets by clicking on the betting chips.</li>
+                          <li>Game is over when you run out of money.</li>
+                          <li>Press RESTART to reset the game.</li>
+                        </ul>  
+                          <p><strong>Card Values</strong></p> 
+                          <ul>
+                              <li>Jacks, Kings, and Queens are worth 10 points.</li> 
+                              <li>Number cards are worth their face value.</li> 
+                              <li>Aces can be worth either 11 or 1.</li> 
+                              <li>An Ace has a default value of 11 unless that would result in a hand with a total score over 21. In that case, it is worth 1 point.</li>
+                          </ul>   
+                      </div>
 
-    </div>
-  
-     <div>  
-      <div id="dealerwrap">          
-        <span id="dealerscore"></span><span id="winsd"></span> 
-        <div id="dealer"></div>
-      </div>
-      <div id="playerwrap">
-        <span id="playerscore"></span><span id="winsp"></span>
-        <div id="player"></div>
-      </div>
-    </div>
-    <div id="textupdates" ></div> 
-    <div id="betting">
-      <img src="10.png" id="10chp">
-      <img src="25.png" id="25chp">
-      <img src="50.png" id="50chp">
-      <img src="100.png" id="100chp">
-      <div id="amt">Your Bet Amount</div> 
-    <div> <input type='number' id='bet' value="0"  min='1' max="100"  /></div>
-      <div id="money"></div> 
-    </div>
-      <div class="buttons">
-        <button id="play-game" class="blue">Deal</button>
-        <button id="hit"class="green">HIT</button>
-        <button id="stay" class="red">STAND</button>
-        <button id="newgame" class="blue">RESTART</button>     
-      </div>
-    
+                    </div>
+                  
+                    <div>  
+                      <div id="dealerwrap">          
+                        <span id="dealerscore"></span><span id="winsd"></span> 
+                        <div id="dealer"></div>
+                      </div>
+                      <div id="playerwrap">
+                        <span id="playerscore"></span><span id="winsp"></span>
+                        <div id="player"></div>
+                      </div>
+                    </div>
+                    <div id="textupdates" ></div> 
+                    <div id="betting">
+                      <img src="10.png" id="10chp">
+                      <img src="25.png" id="25chp">
+                      <img src="50.png" id="50chp">
+                      <img src="100.png" id="100chp">
+                      <div id="amt">Your Bet Amount</div> 
+                    <div> <input type='number' id='bet' value="0"  min='1' max="100"  /></div>
+                      <div id="money"></div> 
+                    </div>
+                      <div class="buttons">
+                        <button id="play-game" class="blue">Deal</button>
+                        <button id="hit"class="green">HIT</button>
+                        <button id="stay" class="red">STAND</button>
+                        <button id="newgame" class="blue">RESTART</button>     
+                      </div>
+      </div>     
   </body>
 </html>

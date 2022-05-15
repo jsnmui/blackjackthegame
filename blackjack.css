@@ -1,4 +1,11 @@
+html {
+  min-height: 100%;
+  background-image: url(background.jpg);
   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
   #textupdates {
       height:80px;
@@ -12,25 +19,12 @@
       
   }
 
-  body {
+   .container {
       height: 100vh;
       width: 100%;
       color: white;
-      background-image: none;
-      background-color: #09853d;
-  }
-
-  /*apply background image only if screen is greater than 480px*/
-  @media screen and (min-width: 480px) {
-    body {
-      height: 100vh;
-      width: 100%;
-      color: white;
-      background-image: url(background.jpg);
-      background-size: cover;
-      background-repeat: no-repeat; 
-      }
-  }
+    }
+  
 
 
   /* resize card images*/
@@ -169,7 +163,7 @@
     }
 
     /* buttons */
-  button {
+    button {
       border:none;
       border-radius: 5px;
       padding: 15px 25px;
