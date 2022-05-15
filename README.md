@@ -7,10 +7,10 @@
 ## Explanations of specific technologies 
 ### HTML 
 HTML is a language used to describe the content and structure of our documents. 
-Most of the content was put inbto <div> tags. There is the black jack logo <img> inide the <h1> at the top.
-The instructions are in a <span> 
-The <button> tags, betting chips images, and betting <input> box are wrapped in <div> tags
-The dealer and player have there separate <div> containers.
+Most of the content was put inbto <div tags. There is the black jack logo inide the h1 tags at the top.
+The instructions are in a span 
+The buttons, betting chips images, and betting input box are wrapped in div tags.
+The dealer and player have separate div containers.
 ### CSS
 Rules that specify how your elements should appear or look on your page.
 Css was used to center the elements.  
