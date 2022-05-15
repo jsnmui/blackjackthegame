@@ -692,8 +692,6 @@
      //get a card 
       function getCard(person) {
        
-                     
-
          let card= DECK.pop();
          
          if (person === 'player'){            
@@ -870,7 +868,6 @@
           
          if ( total > money) {
             alert('You cannot bet more money than you have. Please enter a valid amount.') 
-            betInput.value =0
          } else {
             betInput.value  = total
          } 
