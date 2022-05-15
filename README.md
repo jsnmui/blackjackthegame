@@ -7,8 +7,8 @@
 ## Explanations of specific technologies 
 ### HTML 
 HTML is a language used to describe the content and structure of our documents. 
-Most of the content was put inbto <div tags. There is the black jack logo inide the h1 tags at the top.
-The instructions are in a span 
+Most of the content was placed into  div tags. There is the black jack logo inide the h1 tag at the top.
+The instructions are in a span. 
 The buttons, betting chips images, and betting input box are wrapped in div tags.
 The dealer and player have separate div containers.
 ### CSS
@@ -44,7 +44,8 @@ The main functions are:
 *   setBetchips      reads in the value of chips that the user clicked and puts in in the betting input box
 
 ## Unsolved Problems
-THe game doesn't have any unsolved problems and works according to the basic historic rules of blackjack.
+THe game doesn't have any bugs and works according to the basic historic rules of blackjack.
+However, something could be done to animate the cards so that they don't just teleport into view.
 There are some player decisions that are available in the casino version of blackjack that were not implemented in this simplified version.
 They include:
 *  Double down: Increase the initial bet by 100% and take exactly one more card. 
@@ -56,7 +57,7 @@ They include:
 Extra functionalties can be created to implement these player actons in future versions of the Per Scholas Software Engineering Course blackjack game 
 
 ## Link to Hosted Site
- This game is hosted on GitHub Pages at [I'm an inline-style link with title](https://jsnmui.github.io/blackjackthegame/ "Black Jack Game")
+ This game is hosted on GitHub Pages at [Black Jack](https://jsnmui.github.io/blackjackthegame/ "Black Jack Game")
 
 ## Installation Instructions
 Click on the link that was mentioned in 'Link to Hosted Site' and enjoy.
