@@ -1,30 +1,24 @@
-# Black Jack
-## This is a project to implement a version of the game Black Jack
+#  A Javascript program based on the casino game blackjack
 ## wireframe
 ![alt text](https://github.com/jsnmui/blackjackthegame/blob/main/wireframe.jpg  "wire frame")
  
 
 ## Explanations of specific technologies 
 ### HTML 
-HTML is a language used to describe the content and structure of our documents. 
-Most of the content was placed into  div tags. There is the black jack logo inide the h1 tag at the top.
-The instructions are in a span. 
-The buttons, betting chips images, and betting input box are wrapped in div tags.
-The dealer and player have separate div containers.
+HTML is a language used to describe the content and structure of documents. HTML elements show things like text, images, and lists
+Elements have attributes that allow us to add additional information.  Elements can contain other elements.  Div tags were used in this project to wrap other elements.
+
 ### CSS
 Rules that specify how your elements should appear or look on your page.
-Css was used to center the elements.  
-It was used to provide a background image, set the font color and styles.
-The hover:active, and transform property was used to create the effect to show that buttons were being pressed.
-The buttons and betting ship images are in flex containers 
-
+For his project, CSS was used to postion the elements, provide a background, and set the font color and styles of HTML objects.
+ 
 ### JavaScript 
 JavaScript is a programming language used both on the client-side and server-side that allows you to make web pages interactive.
 Javascript was used to create the game functions and display data dynamically in the HTML document.
 
 ### Document Object Model (DOM)
 The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.
-Javscript functions accessed the DOM to dynamically create the card images on the screen.
+For this project, javscript functions accessed the DOM to dynamically create the card images on the screen.
 Functions were also used to display data suchs as the player's score, number of wins, the value of the dealer's cards, and the amount of money left in the player's bank.
 
 ## Approach Taken
