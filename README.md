@@ -44,8 +44,8 @@ The main functions are:
 *   setBetchips      reads in the value of chips that the user clicked and puts in in the betting input box
 
 ## Unsolved Problems
-THe game doesn't have any bugs and works according to the basic historic rules of blackjack.
-However, something could be done to animate the cards so that they don't just teleport into view.
+Find a better way to hide buttons.
+Something could be done to animate the cards so that they don't just bounce into view.
 There are some player decisions that are available in the casino version of blackjack that were not implemented in this simplified version.
 They include:
 *  Double down: Increase the initial bet by 100% and take exactly one more card. 
