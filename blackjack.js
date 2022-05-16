@@ -688,9 +688,12 @@
         document.getElementById('hit').style.display="block"
         document.getElementById('stay').style.display="block"  
         document.getElementById("bet").disabled = true;
+        let message = document.getElementById('textupdates')
+        message.textContent = "HIT or STAND?"
         displayScore()
         checkStatus()
-  
+       
+        
       }
 
      //get a card  from the deck
@@ -781,12 +784,13 @@
           }
       } 
 
+      
        // check to see if there is a winner and if the player has enought money to continue
      function checkStatus (stand) {
         let message = document.getElementById('textupdates')
         let deal = " Enter another bet and Press Deal to continue playing"
         let reset = false
-
+        
        
         // Check for all possible conditions for 21
         //a Black Jack occurs if the initial hand is an Ace or a 10 point card
