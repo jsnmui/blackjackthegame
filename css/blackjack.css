@@ -199,3 +199,8 @@ html {
     .red:hover{
       background-color: crimson;
     }
+
+    #bet {
+      height: 30px;
+      font-size: 30px;
+    }
