@@ -24,18 +24,18 @@ Functions were also used to display data suchs as the player's score, number of 
 ## Approach Taken
 The rules and actions of the players in blackjack were studied and functions were created that implemented those rules and actions.
 The main functions are:
-*   initializeDeck   initializes array of card objects to hold image links, card values, and suits
-*   shuffleDeack     ioop though the deck and swap each card with another random card
-*   hitMe            player receives a card from the dealer
-*   stay             player deosn't want another card ends his turn
-*   getScore         retreives the score for each player
-*   displayScore     Displays the current score for each player
-*   deal             start game round by dealing two cards to player then dealer with the second card for the dealer placed faced down
-*   getCard          Retrieves  a card from the deck
-*   resetGame        clear the card objects from the screen and reinitialize the deck of cards
-*   wager            calculates the amount of money won or lost and adds it to the bank
-*   checkStatus      check to see if there is a winner and if the player has enought money to continue
-*   setBetchips      reads in the value of chips that the user clicked and puts in in the betting input box
+*   initializeDeck  - initializes array of card objects to hold image links, card values, and suits
+*   shuffleDeck     - ioop though the deck and swap each card with another random card
+*   hitMe           - player receives a card from the dealer
+*   stay            - player doesn't want another card and ends the turn
+*   getScore        - retreives the score for each player
+*   displayScore    - displays the current score for each player
+*   deal            - start game round by dealing two cards to player then dealer with the second card for the dealer placed faced down
+*   getCard         - retrieves a card from the deck
+*   resetGame       - clear the card objects from the screen and reinitialize the deck of cards
+*   wager           - calculates the amount of money won or lost and adds it to the bank
+*   checkStatus     - check to see if there is a winner and if the player has enought money to continue
+*   setBetchips     - reads in the value of chips that the user clicked and puts in in the betting input box
 
 ## Unsolved Problems
 Find a better way to hide buttons.
