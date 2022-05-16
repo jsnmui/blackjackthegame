@@ -25,7 +25,7 @@ Functions were also used to display data suchs as the player's score, number of 
 The rules and actions of the players in blackjack were studied and functions were created that implemented those rules and actions.
 The main functions are:
 *   initializeDeck  - initializes array of card objects to hold image links, card values, and suits
-*   shuffleDeck     - ioop though the deck and swap each card with another random card
+*   shuffleDeck     - loop though the deck and swap each card with another random card
 *   hitMe           - player receives a card from the dealer
 *   stay            - player doesn't want another card and ends the turn
 *   getScore        - retreives the score for each player
