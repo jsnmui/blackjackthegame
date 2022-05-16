@@ -1,4 +1,4 @@
-#  A Javascript program based on the casino game blackjack
+#  A JavaScript program based on the casino game blackjack
 ## wireframe
 ![alt text](https://github.com/jsnmui/blackjackthegame/blob/main/wireframe.jpg  "wire frame")
  
@@ -10,7 +10,7 @@ Elements have attributes that allow us to add additional information.  Elements 
 
 ### CSS
 Rules that specify how your elements should appear or look on your page.
-For his project, CSS was used to postion the elements, provide a background, and set the font color and styles of HTML objects.
+For this project, CSS was used to postion the elements, provide a background, and set the font color and styles of HTML objects.
  
 ### JavaScript 
 JavaScript is a programming language used both on the client-side and server-side that allows you to make web pages interactive.
