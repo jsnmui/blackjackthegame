@@ -19,20 +19,21 @@ html {
 
    .container {
        color: white;
+     
     }
   
 
 
   /* resize card images*/
   #dealer img{
-      width: 200px;
+      width: 150px;
       height: auto
   }
 
 
 
   #player img{
-      width: 200px;
+      width: 150px;
       height: auto
   } 
 
@@ -103,7 +104,7 @@ html {
 
   
   #betting img{
-      width: 100px;
+      width: 60px;
       height: auto;
       padding: 5px;
   }
@@ -203,4 +204,10 @@ html {
     #bet {
       height: 30px;
       font-size: 30px;
+    } 
+
+    #playercontainer{
+       height:600px;
+       width:auto;
+
     }
